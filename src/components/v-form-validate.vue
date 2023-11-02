@@ -22,33 +22,50 @@
                 >
             </div>
             <div class="v-form-input col-md-8">
-                <label for="inputAddress" class="form-label">Адрес</label>
-                <input 
-                type="text" 
-                class="form-control" 
-                id="inputAddress" 
-                placeholder="Проспект Ленина"
-                v-model.trim="adres1"
-                >
-            </div>
-            <div class="v-form-input col-md-8">
-                <label for="inputAddress2" class="form-label">Адрес 2</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Квартира">
-            </div>           
-            <div class="v-form-input col-md-8">
                 <label for="inputState" class="form-label">Город</label>
-                <select id="inputState" class="form-select" v-model="city">
+                <select id="inputState" 
+                class="form-select" 
+                v-model="city"
+                >
                 <option
                  selected
                  v-for="(city,index) in cityes"
+                 :value="city.value"
                  :key="index"
                  >
                  {{ city.label }}</option>                
                 </select>
             </div>
             <div class="v-form-input col-md-8">
+                <label for="inputState" class="form-label">Адрес</label>
+                <select
+                class="form-select" 
+                id="inputState2" 
+                placeholder="Проспект Ленина"  
+                >
+                <option
+                v-for="(adres,index) in adreses"
+                 :value="adres.value"
+                 :key="index"
+                 >
+                 {{ adres.label }}
+                
+            </option>
+                </select> 
+                            
+                
+            </div>
+            <div class="v-form-input col-md-8">
+                <label for="inputAddress2" class="form-label">ФИО</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="ФИО">
+            </div>           
+            <div class="v-form-input col-md-8">
+                <label for="inputAddress3" class="form-label">Телефон</label>
+                <input type="text" class="form-control" id="inputAddress3" placeholder="Телефон">
+            </div>  
+            <div class="v-form-input col-md-8">
                 <label for="inputZip" class="form-label">Индекс</label>
-                <input type="text" class="form-control" id="inputZip">
+                <input type="text" class="form-control" id="inputZip" placeholder="192158">
             </div>
             <div class="v-form-input col-md-8">
                 <div class="form-check">
@@ -72,8 +89,8 @@ export default {
         return{
             email: '',
             password: '',
-            adres1: '',
-            city: [
+            city: 'Moskva',
+            cityes: [
                 {
                     label: 'Москва',
                     value: 'Moskva',
@@ -86,6 +103,20 @@ export default {
                     label: 'Орёл',
                     value: 'Orel'
                 }               
+            ],
+            adreses:[
+            {
+                    label: 'Московский пр',
+                    value: 'Mockovskii pr',
+                },
+                {
+                    label: 'Ленинский пр',
+                    value: 'Leninskii pr'
+                },
+                {
+                    label: 'Центральная ул',
+                    value: 'Centralnay ul'
+                } 
             ]
         }
     },

@@ -68,7 +68,7 @@
                 class="form-control"
                 id="inputAddress2"
                 placeholder="ФИО"
-                v-model.trim="$v.form.fio.$model"
+                v-model.trim="form.fio"
                    >
             </div> 
             <!-- phone -->
@@ -116,19 +116,15 @@
 </template>
 <script>
 
-
+import {email, required, minLength,password} from 'vuelidate/lib/validators'
 
 export default {
     name: 'vFormValidate',
     validations () {
     return {
       form:{
-        fio:{
-            simpleValidator(value){
-                console.log(value)
-                return value.length >10
-            }
-        }
+        email:{email, required},
+        password:{password, required, minLength:minLength(6)}
       }
       }
     },

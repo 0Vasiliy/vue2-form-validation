@@ -10,6 +10,7 @@
             id="inputEmail4" 
             placeholder="email@mail.ru"
             v-model.trim="form.email"
+           
             >
             </div>
             <!-- password -->
@@ -109,7 +110,7 @@
             </div>
             <!-- button -->
             <div class="v-form-input col-md-8">
-                <button type="submit" class="v-form-btn btn btn-primary">Войти в систему</button>
+                <button type="submit" @submit.prevent="submitHandler" class="v-form-btn btn btn-primary">Войти в систему</button>
             </div>
         </div>       
     </form>   
@@ -127,6 +128,14 @@ export default {
         password:{password, required, minLength:minLength(6)}
       }
       }
+    },
+    methods:{
+        submitHandler(){
+            if(this.$v.$invalid){
+                this.$v.$touch()
+                return
+            }
+        }
     },
     data(){
         return{
@@ -169,10 +178,8 @@ export default {
                 } 
             ]
         }
-    },
-    methods:{
-        
     }
+    
 }
 
 </script>

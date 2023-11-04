@@ -10,7 +10,6 @@
             id="inputEmail4" 
             placeholder="email@mail.ru"
             v-model.trim="form.email"
-           
             >
             </div>
             <!-- password -->
@@ -110,33 +109,17 @@
             </div>
             <!-- button -->
             <div class="v-form-input col-md-8">
-                <button type="submit" @submit.prevent="submitHandler" class="v-form-btn btn btn-primary">Войти в систему</button>
+                <button type="submit"  class="v-form-btn btn btn-primary">Войти в систему</button>
             </div>
         </div>       
     </form>   
 </template>
 <script>
 
-import {email, required, minLength,password} from 'vuelidate/lib/validators'
+import {email, required} from 'vuelidate/lib/validators'
 
 export default {
     name: 'vFormValidate',
-    validations () {
-    return {
-      form:{
-        email:{email, required},
-        password:{password, required, minLength:minLength(6)}
-      }
-      }
-    },
-    methods:{
-        submitHandler(){
-            if(this.$v.$invalid){
-                this.$v.$touch()
-                return
-            }
-        }
-    },
     data(){
         return{
             form:{
@@ -178,6 +161,22 @@ export default {
                 } 
             ]
         }
+    },
+    validations () {
+    return {
+      form:{
+        email:{email,
+             required,
+             requiredIfFoo: requiredUnless(this.foo),
+             requiredIfRef: requiredUnless(someRef),
+             requiredIfFuction: requiredUnless(someFunction),
+             requiredIfAsyncFuction: requiredUnless(asyncFunction),
+            },
+        
+      }
+      
+      }
+      
     }
     
 }

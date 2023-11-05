@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-      <v-form-validate/>
+      <v-form-validate/>      
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import vFormValidate from './components/v-form-validate.vue';
 export default {
   name: 'App',
   components: {
-    vFormValidate
+    vFormValidate,
   }
 }
 </script>

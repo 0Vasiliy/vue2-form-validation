@@ -53,7 +53,7 @@
                 </p>
             </div>
             <!-- select1 -->
-            <div class="v-form-input col-md-8">
+            <div class="v-form-input col-md-8 col-sm-5 col-6">
                 <label for="inputState" class="form-label">Город</label>
                 <select id="inputState" 
                 class="form-select" 
@@ -69,7 +69,7 @@
                 </select>
             </div>
             <!-- select2 -->
-            <div class="v-form-input col-md-8">
+            <div class="v-form-input col-md-8 col-sm-5 col-6">
                 <label for="inputState" class="form-label">Адрес</label>
                 <select
                 class="form-select" 
@@ -77,7 +77,7 @@
                 multiple
                 v-model="form.faforitAdres"
                 >
-                <option
+                <option class="col-md-8"
                 v-for="(adres,index) in adreses"
                  :value="adres.value"
                  :key="index"

@@ -108,15 +108,16 @@
             <div class="v-form-input col-md-8">
                 <label for="inputAddress3" class="form-label">Телефон</label>
                 <input
-                type="text"
+                type="tel"
                 class="form-control" 
                 id="inputAddress3" 
-                placeholder="+7-(000)-000-00-00"
+                placeholder="+7(000)-000-00-00"
                 v-model.trim="form.phone"
-                :class="$v.form.phone.$error ? 'is-invalid' : ''"
-                v-mask="'#-###-###-##-##'"
-                maxlength="15"
-                minlength="15"             
+                v-mask="'##################'"
+                :class="$v.form.phone.$error ? 'is-invalid' : ''"                
+                maxlength="18"
+                minlength="18" 
+                v-phone           
                 >
                 <p v-if="$v.form.phone.$dirty && !$v.form.phone.required" class="invalid-feedback">
                 Введите номер телефона
@@ -154,7 +155,9 @@
             </div>
             <!-- button -->
             <div class="v-form-input col-md-8">
-                <button type="submit"  class="v-form-btn btn btn-primary">Войти в систему</button>
+                <button type="submit"  
+                class="v-form-btn btn btn-primary"
+                >Войти в систему</button>
             </div>
         </div>       
     </form>   
@@ -217,7 +220,8 @@ export default {
         password: { required },
         fio: {required},
         phone: {required, numeric},
-        indexPochta:{required, numeric}
+        indexPochta:{required, numeric},
+        checkbocks:{required}
       }
     },
     methods:{

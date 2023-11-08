@@ -15,6 +15,8 @@ new Vue({
   render: h => h(App),
 }).$mount('#app')
 
+
+// Валидация телефона,ввода только цифр
 Vue.directive('phone',{
   bind(el){
       el.oninput = function(e){

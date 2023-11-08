@@ -53,7 +53,7 @@
                 </p>
             </div>
             <!-- select1 -->
-            <div class="v-form-input col-md-8 col-sm-5 col-6">
+            <div class="v-form-input col-md-8 col-5">
                 <label for="inputState" class="form-label">Город</label>
                 <select id="inputState" 
                 class="form-select" 
@@ -69,7 +69,7 @@
                 </select>
             </div>
             <!-- select2 -->
-            <div class="v-form-input col-md-8 col-sm-5 col-6">
+            <div class="v-form-input col-md-8 col-5">
                 <label for="inputState" class="form-label">Адрес</label>
                 <select
                 class="form-select" 
@@ -139,21 +139,41 @@
                 Введите номер телефона
                 </p>
             </div>
-            <!-- checkbocks -->
+            <!-- radio button-->
+            <div class="v-form-radio col-md-8">
+            <!-- radio button male-->
             <div class="v-form-input col-md-8">
-                <div class="form-check">
-                <input 
-                class="form-check-input" 
-                type="checkbox" 
-                id="gridCheck"
-                v-model="form.checkbocks"
-                >
-                <label class="form-check-label" for="gridCheck">
-                    Проверить меня
-                </label>
+                <div class="form-check col-md-8">
+                    <input 
+                    class="form-check-input" 
+                    type="radio" 
+                    id="male"
+                    value="male"
+                    v-model="form.gendere"
+                    >
+                    <label class="form-check-label" for="male">
+                        Мужчина
+                    </label>
+                    </div>
+                </div>
+                <!-- radio button female -->
+                <div class="v-form-input radio-fimale col-md-8">
+                    <div class="form-check col-md-8">
+                    <input 
+                    class="form-check-input" 
+                    type="radio" 
+                    id="female"
+                    value="female"
+                    v-model="form.gendere"
+                    >
+                    <label class="form-check-label" for="female">
+                        Женщина
+                    </label>
+                    </div>
                 </div>
             </div>
-            <!-- button -->
+                    
+                <!-- button -->
             <div class="v-form-input col-md-8">
                 <button type="submit"  
                 class="v-form-btn btn btn-primary"
@@ -180,7 +200,8 @@ export default {
                 indexPochta: '',
                 checkbocks: false,
                 city: 'Moskva',
-                faforitAdres: ['Mockovskii pr']
+                faforitAdres: ['Mockovskii pr'],
+                gendere: 'male'
             },          
             cityes: [
                 {
@@ -262,6 +283,12 @@ export default {
     .v-form-btn:hover{
         transition: all ease-in .3s;
         background-color: #2f4f4f;
+    }
+    .v-form-radio{
+        display: flex;
+    }
+    .radio-fimale {
+        margin-left: 20px;
     }
     label{
         display: flex;
